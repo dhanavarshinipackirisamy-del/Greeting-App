@@ -13,8 +13,11 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
-    @GetMapping
-    public String greeting() {
-        return greetingService.getGreeting();
+    @GetMapping("/name")
+    public String greeting(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName) {
+
+        return greetingService.getGreeting(firstName, lastName);
     }
 }
