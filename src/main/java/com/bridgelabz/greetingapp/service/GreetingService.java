@@ -25,6 +25,9 @@ public class GreetingService {
 
         return "Hello World";
     }
+    public Greeting getGreetingById(Long id) {
+        return greetingRepository.findById(id).orElse(null);
+    }
     public Greeting saveGreeting(String message) {
         Greeting greeting = new Greeting(message);
         return greetingRepository.save(greeting);
