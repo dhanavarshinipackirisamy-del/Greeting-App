@@ -1,5 +1,6 @@
 package com.bridgelabz.greetingapp.controller;
 
+import com.bridgelabz.greetingapp.entity.Greeting;
 import com.bridgelabz.greetingapp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,5 +20,10 @@ public class GreetingController {
             @RequestParam(required = false) String lastName) {
 
         return greetingService.getGreeting(firstName, lastName);
+    }
+
+    @PostMapping("/save")
+    public Greeting saveGreeting(@RequestParam String message) {
+        return greetingService.saveGreeting(message);
     }
 }
